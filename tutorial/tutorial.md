@@ -1,6 +1,6 @@
 # Short Tutorial
 
-To experience FRP and understand how to use this library, we make an imitation of Linux's atd(8) and at(1).
+To experience FRP (Functional Reactive Programming) and understand how to use this library, we make an imitation of Linux's atd(8) and at(1).
 
 ## atd(8) and at(1) on Linux
 
@@ -86,7 +86,7 @@ What should my_atd do as output?
 The answer is maybe executing command and responding to client.
 So if `commands` is array of command-string and `responses` is array of
 `Hash(:connection => client-socket, :message => response-string)`,
-we can define Procs to execute command and respond to client.
+we can define Procs to execute command and to respond to client.
 ```ruby
 exec_commands = proc do |commands|
   commands.each do |command|
@@ -104,7 +104,7 @@ respond = proc do |responses|
 end
 ```
 
-And define a Proc to bind these two Proc if `out` is
+And define a Proc to bind these two Procs if `out` is
 `Hash(:commands => commands, :responses => responses)`.
 ```ruby
 output_processor = proc do |out|
@@ -120,11 +120,11 @@ And we suddenly realize that we can separate registered commands into three part
 * `launcheds`: commands which should be executed right now
 * `rejecteds`: commands which are requested to add but rejected
 
-And then we can express each parts by ruby's data:
+And then we can express each parts as Ruby's data:
 
 * `waitings`:  `Hash(:command_str => command-string, :time => time)`
 * `launcheds`: `Hash(:command_str => command-string, :time => time)`
-* `rejecteds`: `Hash(:command_str => command-string, :time_str => time-string, :connection => requester-client-socket)`
+* `rejecteds`: `Hash(:command_str => command-string, :time_str => time-string, :connection => client-socket)`
 
 If `ct` is current time,  `cs` is Array of request which is
 `Hash(command_str: command-string, :time_str => time-string, :connection => client-socket)` and
@@ -155,8 +155,9 @@ rescue
 end
 ```
 
-Now, we can make data which is `Hash(:commands => commands, :responses => responses)` which is used as argument of Proc named `output-processor`.
-
+Now, we can make a function to generate data which is `Hash(:commands => commands, :responses => responses)`.
+This data is used as argument of Proc `output-processor` which we made earlier.
+We can write the function as follows, where `coms` is updated commands and `cs` is Array of request.
 ```ruby
 output_formatize = proc do |coms, cs|
   ress = cs.map do |c|
@@ -171,19 +172,19 @@ output_formatize = proc do |coms, cs|
 end
 ```
 
-Where `coms` is updated commands and `cs` is Array of request.
 
 Phew, that was steep road. But our task has almost been completed!
 So far we only define two input-proc, one output-proc, and two pure-function, but we didn't use `frypan` yet.
 
 Do you remember `frypan`?
-Yes, it's my library to do FRP.
+It's my library to do FRP.
 
 Do you know FRP?
-Don't worry, experience is the best teacher:).
+If you don't know, don't worry!
+Experience is the best teacher :)
 
 
-As finishing of all, we do FRP by `frypan`.
+As finishing of all, we do FRP by using `frypan`.
 ```ruby
 require 'frypan'
 
@@ -207,7 +208,10 @@ Frypan::Reactor.new(main).loop(&output_processor)
 ```
 
 All of my_atd is completed with this!
-It's true! Completely Executable program (my_atd.rb) is here:
+
+It's true!
+
+Complete source-code of executable program (`my_atd.rb`) is here:
 ```ruby
 #!/usr/bin/env ruby
 
@@ -297,9 +301,10 @@ Frypan::Reactor.new(main).loop(&output_processor)
 
 ## Make `my_at.rb`
 
-We need not to use `frypan` in `my_at.rb`.
+We need not to use `frypan` to make `my_at.rb`.
 So, we make `my_at.rb` quickly by sloppy job.
 
+Complete source-code of executable program (`my_at.rb`) is here:
 ```ruby
 #!/usr/bin/env ruby
 
@@ -347,13 +352,17 @@ response: OK.
 ```
 At "2015/03/15 00:00:00 JST", you are going to discover a file named `hello-at.txt` on your directory!
 
-## Thank you
+## Thank you for your hard work
 
-Thank you for your reading!
-We have made one of pratical application by `frypan`.
-FRP mkes it easy to program Real-time systems such as `atd`.
+We have made one of practical applications by `frypan`.
+Are you tired? or excited? or puzzled? ha-ha!
 
+FRP makes it easy to program Real-time systems such as `atd`.
+In many cases, it's hard to write Real-time systems as simple Input-and-Output program.
+But by FRP, we makes structure of Real-time systems' program separate into IO-operator (Proc having side-effect) and pure-function (Proc having no side-effect).
+It is one of the best way to write Real-time system as concisely as possible.
 
-
-
+To write concise program is exciting.
+To read concise program is also exciting.
+Let's do exciting things!
 

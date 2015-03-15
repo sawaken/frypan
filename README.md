@@ -1,6 +1,6 @@
 # Frypan
 
-Very small and simple library to do Functional Reactive Programming in Ruby in a similar way to Elm.
+Very small and simple library to do FRP (Functional Reactive Programming) in Ruby in a similar way to Elm.
 
 ## Installation
 

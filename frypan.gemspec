@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = Frypan::VERSION
   spec.authors       = ["sawaken"]
   spec.email         = ["sasasawada@gmail.com"]
-  spec.summary       = %q{Very small and simple library to do Functional Reactive Programming in Ruby in a similar way to Elm.}
+  spec.summary       = %q{Very small and simple library to do FRP (Functional Reactive Programming) in Ruby in a similar way to Elm.}
   spec.homepage      = "https://github.com/sawaken/tiny_frp2"
   spec.license       = "MIT"
 
