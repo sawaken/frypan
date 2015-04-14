@@ -1,4 +1,4 @@
-# Short Tutorial
+# Let's Make Atd
 
 To experience FRP (Functional Reactive Programming) and understand how to use this library, we make an imitation of Linux's atd(8) and at(1).
 
@@ -352,9 +352,9 @@ response: OK.
 ```
 At "2015/03/15 00:00:00 JST", you are going to discover a file named `hello-at.txt` on your directory!
 
-## Thank you for your hard work
+## Good job!
 
-We have made one of practical applications by `frypan`.
+We have made one of practical applications by Fryapn.
 Are you tired? or excited? or puzzled? ha-ha!
 
 FRP makes it easy to program Real-time systems such as `atd`.
@@ -362,7 +362,7 @@ In many cases, it's hard to write Real-time systems as simple Input-and-Output p
 But by FRP, we makes structure of Real-time systems' program separate into IO-operator (Proc having side-effect) and pure-function (Proc having no side-effect).
 It is one of the best way to write Real-time system as concisely as possible.
 
-To write concise program is exciting.
-To read concise program is also exciting.
-Let's do exciting things!
+Let's leave the frustration of complex-coding behind by Frypan:)
+
+
 
