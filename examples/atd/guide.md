@@ -357,9 +357,9 @@ At "2015/03/15 00:00:00 JST", you are going to discover a file named `hello-at.t
 We have made one of practical applications by Fryapn.
 Are you tired? or excited? or puzzled? ha-ha!
 
-FRP makes it easy to program Real-time systems such as `atd`.
+Frypan makes it easy to program Real-time systems such as `atd`.
 In many cases, it's hard to write Real-time systems as simple Input-and-Output program.
-But by FRP, we makes structure of Real-time systems' program separate into IO-operator (Proc having side-effect) and pure-function (Proc having no side-effect).
+But by Frypan, we makes structure of Real-time systems' program separate into IO-operator (Proc having side-effect) and pure-function (Proc having no side-effect).
 It is one of the best way to write Real-time system as concisely as possible.
 
 Let's leave the frustration of complex-coding behind by Frypan:)

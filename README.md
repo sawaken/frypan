@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Examples
 
-[Imitation of Atd(8) on Linux](https://github.com/sawaken/frypan/blob/master/examples/atd/guide.md "Frypan - Example1")
+[1. Making an imitation of atd(8) on Linux](https://github.com/sawaken/frypan/blob/master/examples/atd/guide.md "Frypan - Example1")
 
 ## Contributing
 
