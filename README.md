@@ -18,11 +18,9 @@ Or install it yourself as:
 
     $ gem install frypan
 
-## Short Tutorial
+## Examples
 
-To experience FRP and understand how to use this library, we make an imitation of Linux's atd(8) and at(1).
-
-[Click here to jump to Short Tutorial page.](https://github.com/sawaken/frypan/blob/master/tutorial/tutorial.md "Frypan - Short Tutorial")
+[Imitation of Atd(8) on Linux](https://github.com/sawaken/frypan/blob/master/examples/atd/guide.md "Frypan - Example1")
 
 ## Contributing
 
